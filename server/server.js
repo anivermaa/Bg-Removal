@@ -3,6 +3,7 @@ import express from 'express';
 
 import cors from 'cors';
 import connectDB from './configs/mongodb.js';
+import userRouter from './routes/userRoutes.js';
    
 
 //App Config
@@ -18,6 +19,7 @@ app.use(cors());
 
 //App routes
 app.get('/', (req, res) => res.send('API working'));
+app.use('/api/user', userRouter);
 
 //Listener
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
